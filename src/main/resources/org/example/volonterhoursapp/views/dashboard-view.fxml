@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.volonterhoursapp.controller.DashboardController"
+      spacing="16">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox spacing="2">
+        <Label text="Дашборд" styleClass="title-label"/>
+        <Label fx:id="headerSubtitle" text="Сводные показатели и последние действия." styleClass="subtitle-label"/>
+    </VBox>
+
+    <!-- Раздел для администратора и куратора: показатели и журнал. -->
+    <VBox fx:id="adminBox" spacing="16" VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="kpiPane" hgap="14" vgap="14"/>
+
+        <Label text="Последние действия" styleClass="section-header"/>
+        <TableView fx:id="logTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colTime"    text="Время"    prefWidth="170"/>
+                <TableColumn fx:id="colActor"   text="Исполнитель" prefWidth="160"/>
+                <TableColumn fx:id="colAction"  text="Действие" prefWidth="200"/>
+                <TableColumn fx:id="colDetails" text="Детали"   prefWidth="420"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- Раздел для волонтёра: его мероприятия и те, на которые можно записаться. -->
+    <VBox fx:id="volunteerBox" spacing="10" VBox.vgrow="ALWAYS">
+        <Label text="Мои мероприятия" styleClass="section-header"/>
+        <TableView fx:id="myEventsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colMyDate"     text="Дата/время"  prefWidth="160"/>
+                <TableColumn fx:id="colMyTitle"    text="Мероприятие" prefWidth="240"/>
+                <TableColumn fx:id="colMyLocation" text="Место"       prefWidth="160"/>
+                <TableColumn fx:id="colMyType"     text="Тип"         prefWidth="120"/>
+                <TableColumn fx:id="colMyStatus"   text="Статус"      prefWidth="200"/>
+                <TableColumn fx:id="colMyHours"    text="Часы"        prefWidth="80"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.volonterhoursapp.controller.HelpController"
+            styleClass="app-root" prefWidth="940" prefHeight="640">
+
+    <top>
+        <VBox styleClass="toolbar">
+            <Label text="Справка — как пользоваться приложением" styleClass="title-label"/>
+            <Label text="Выберите раздел слева, чтобы прочитать, что он делает и как с ним работать."
+                   styleClass="subtitle-label"/>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox styleClass="help-sidebar">
+            <Label text="РАЗДЕЛЫ" styleClass="muted"/>
+            <Region prefHeight="6"/>
+            <ListView fx:id="topicList" VBox.vgrow="ALWAYS" prefWidth="250"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fx:id="scroll" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                    styleClass="help-scroll">
+            <VBox fx:id="content" styleClass="help-content" spacing="10">
+                <padding><Insets top="22" right="28" bottom="28" left="28"/></padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

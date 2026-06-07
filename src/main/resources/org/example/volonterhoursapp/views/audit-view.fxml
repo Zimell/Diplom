@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.volonterhoursapp.controller.AuditController"
+      spacing="14">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <VBox spacing="2">
+        <Label text="Журнал действий" styleClass="title-label"/>
+        <Label text="Все изменения по волонтёрам, мероприятиям и участиям." styleClass="subtitle-label"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Куратор"  styleClass="muted"/>
+        <TextField fx:id="actorField"  promptText="часть ФИО куратора" prefWidth="200"/>
+        <Label text="Действие" styleClass="muted"/>
+        <TextField fx:id="actionField" promptText="например «подтверж»" prefWidth="200"/>
+        <Button text="Найти"    styleClass="primary-button" onAction="#onSearch"/>
+        <Button text="Сбросить" styleClass="action-button"  onAction="#onReset"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Экспорт CSV" styleClass="action-button" onAction="#onExportCsv"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colTime"    text="Время"    prefWidth="170"/>
+            <TableColumn fx:id="colActor"   text="Куратор"  prefWidth="180"/>
+            <TableColumn fx:id="colAction"  text="Действие" prefWidth="200"/>
+            <TableColumn fx:id="colDetails" text="Детали"   prefWidth="460"/>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw -q -o compile)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(& \"C:\\\\Program Files\\\\JetBrains\\\\IntelliJ IDEA Community Edition 2025.2.6.2\\\\jbr\\\\bin\\\\javac.exe\" -version)",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Users\\\\wint1\\\\.jdks\\\\corretto-22.0.2\"; $env:PATH = \"$env:JAVA_HOME\\\\bin;$env:PATH\"; .\\\\mvnw.cmd -q -o compile 2>&1 | Select-Object -Last 80)",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Users\\\\wint1\\\\.jdks\\\\corretto-22.0.2\"; $env:PATH = \"$env:JAVA_HOME\\\\bin;$env:PATH\"; .\\\\mvnw.cmd -o compile 2>&1 | Select-Object -Last 40)",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Users\\\\wint1\\\\.jdks\\\\corretto-22.0.2\"; $env:PATH = \"$env:JAVA_HOME\\\\bin;$env:PATH\"; .\\\\mvnw.cmd clean compile 2>&1 | Select-Object -Last 50)",
+      "Bash(./mvnw.cmd -q compile)",
+      "PowerShell($j = \\(Get-Command java -ErrorAction SilentlyContinue\\); if \\($j\\) { $j.Source }; $env:JAVA_HOME)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell($paths = @\\(\"C:\\\\Program Files\\\\JetBrains\",\"$env:LOCALAPPDATA\\\\Programs\",\"$env:LOCALAPPDATA\\\\JetBrains\"\\); foreach \\($p in $paths\\) { Get-ChildItem $p -Recurse -Depth 4 -Filter \"javac.exe\" -ErrorAction SilentlyContinue | Select-Object -First 5 FullName })",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Program Files\\\\JetBrains\\\\IntelliJ IDEA Community Edition 2025.2.6.2\\\\jbr\"; & \".\\\\mvnw.cmd\" -q -o compile 2>&1 | Select-Object -Last 40)",
+      "PowerShell(try { [xml]$x = Get-Content \"C:\\\\Users\\\\wint1\\\\IdeaProjects\\\\volonterHoursAPP\\\\docx\\\\диаграмма_деятельности.drawio.xml\" -Raw -Encoding UTF8; \"OK : диаграмма_деятельности.drawio.xml\" } catch { \"ERR: $\\($_.Exception.Message\\)\" })",
+      "PowerShell(try { [xml]$x = Get-Content \"C:\\\\Users\\\\wint1\\\\IdeaProjects\\\\volonterHoursAPP\\\\docx\\\\реляционная_модель.drawio.xml\" -Raw -Encoding UTF8; \"OK : реляционная_модель.drawio.xml\" } catch { \"ERR: $\\($_.Exception.Message\\)\" })"
+    ]
+  }
+}

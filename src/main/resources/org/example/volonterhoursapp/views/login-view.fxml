@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.example.volonterhoursapp.controller.LoginController"
+           styleClass="app-root">
+
+    <VBox spacing="14" styleClass="card" maxWidth="380" alignment="TOP_LEFT">
+        <padding><Insets top="26" right="26" bottom="26" left="26"/></padding>
+
+        <VBox spacing="2">
+            <Label text="ВОЛОНТЁРСКАЯ СЛУЖБА" styleClass="brand-accent,subtitle-label"/>
+            <Label text="Вход в систему" styleClass="title-label"/>
+            <Label text="Введите логин и пароль учётной записи." styleClass="muted" wrapText="true"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label text="Логин" styleClass="muted"/>
+            <TextField fx:id="usernameField" promptText="Например: admin" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label text="Пароль" styleClass="muted"/>
+            <PasswordField fx:id="passwordField" promptText="Пароль" maxWidth="Infinity"/>
+        </VBox>
+
+        <Label fx:id="errorLabel" styleClass="danger-text" wrapText="true" managed="false" visible="false"/>
+
+        <Button fx:id="loginButton" text="Войти" styleClass="primary-button"
+                maxWidth="Infinity" onAction="#onLogin"/>
+    </VBox>
+</StackPane>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.volonterhoursapp.controller.RatingController"
+      spacing="14">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <VBox spacing="2">
+        <Label text="Рейтинг волонтёров" styleClass="title-label"/>
+        <Label text="Топ волонтёров по подтверждённым часам с фильтром по периоду." styleClass="subtitle-label"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="С даты" styleClass="muted"/>
+        <DatePicker fx:id="fromPicker"/>
+        <Label text="По дату" styleClass="muted"/>
+        <DatePicker fx:id="toPicker"/>
+        <Button text="Применить" styleClass="primary-button" onAction="#onApply"/>
+        <Button text="Сбросить"  styleClass="action-button"  onAction="#onReset"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Экспорт CSV" styleClass="action-button" onAction="#onExportCsv"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colRank"   text="Место"            prefWidth="70"/>
+            <TableColumn fx:id="colFio"    text="Волонтёр"         prefWidth="280"/>
+            <TableColumn fx:id="colHours"  text="Подтв. часов"     prefWidth="140"/>
+            <TableColumn fx:id="colEvents" text="Мероприятий"      prefWidth="130"/>
+            <TableColumn fx:id="colLast"   text="Последняя активность" prefWidth="180"/>
+        </columns>
+    </TableView>
+</VBox>

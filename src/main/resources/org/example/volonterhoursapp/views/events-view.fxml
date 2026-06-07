@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.volonterhoursapp.controller.EventsController"
+      spacing="14">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <VBox spacing="2">
+        <Label text="Мероприятия" styleClass="title-label"/>
+        <Label text="Список мероприятий: название, время, место, тип, организатор." styleClass="subtitle-label"/>
+    </VBox>
+
+    <SplitPane fx:id="splitPane" dividerPositions="0.62" VBox.vgrow="ALWAYS">
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="colId"        text="#"          prefWidth="60"/>
+                <TableColumn fx:id="colTitle"     text="Название"   prefWidth="230"/>
+                <TableColumn fx:id="colDateTime"  text="Дата/время" prefWidth="150"/>
+                <TableColumn fx:id="colLocation"  text="Место"      prefWidth="160"/>
+                <TableColumn fx:id="colType"      text="Тип"        prefWidth="120"/>
+                <TableColumn fx:id="colOrganizer" text="Организатор" prefWidth="140"/>
+            </columns>
+        </TableView>
+
+        <VBox fx:id="editorCard" spacing="10" styleClass="card">
+            <Label text="Карточка мероприятия" styleClass="section-header"/>
+
+            <Label text="Название"  styleClass="muted"/>
+            <TextField fx:id="titleField"/>
+
+            <Label text="Дата"      styleClass="muted"/>
+            <DatePicker fx:id="datePicker" maxWidth="Infinity"/>
+
+            <Label text="Время (HH:mm)" styleClass="muted"/>
+            <TextField fx:id="timeField" promptText="например 18:30"/>
+
+            <Label text="Место"     styleClass="muted"/>
+            <TextField fx:id="locationField"/>
+
+            <Label text="Тип"       styleClass="muted"/>
+            <ComboBox fx:id="typeCombo" editable="true" maxWidth="Infinity"/>
+
+            <Label text="Организатор" styleClass="muted"/>
+            <ComboBox fx:id="organizerCombo" editable="true" maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <HBox spacing="10">
+                <Button text="Новое"      styleClass="action-button"  onAction="#onNew"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Удалить"    styleClass="danger-button"  onAction="#onDelete"/>
+                <Button text="Сохранить"  styleClass="primary-button" onAction="#onSave"/>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox>

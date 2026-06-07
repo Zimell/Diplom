@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.volonterhoursapp.controller.AnalyticsController"
+      spacing="14">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <VBox spacing="2">
+        <Label text="Аналитика" styleClass="title-label"/>
+        <Label text="Динамика подтверждённых часов волонтёра по месяцам." styleClass="subtitle-label"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Волонтёр" styleClass="muted"/>
+        <ComboBox fx:id="volunteerCombo" prefWidth="320"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Обновить" styleClass="action-button" onAction="#onRefresh"/>
+    </HBox>
+
+    <LineChart fx:id="chart" VBox.vgrow="ALWAYS" animated="false" createSymbols="true">
+        <xAxis>
+            <CategoryAxis fx:id="xAxis" label="Месяц"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis" label="Часы"/>
+        </yAxis>
+    </LineChart>
+</VBox>

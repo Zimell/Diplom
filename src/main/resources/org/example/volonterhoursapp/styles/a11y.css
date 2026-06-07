@@ -1,0 +1,68 @@
+/*
+ * Версия «для слабовидящих». Подключается ПОВЕРХ dark.css / light.css,
+ * поэтому переопределяет только размеры, толщину и контрастность —
+ * цвета берутся из активной темы.
+ */
+
+.root {
+    -fx-font-size: 16px;
+}
+
+/* Заголовки и подписи крупнее */
+.title-label   { -fx-font-size: 28px; -fx-font-weight: 800; }
+.subtitle-label { -fx-font-size: 15px; -fx-opacity: 0.9; }
+.section-header { -fx-font-size: 18px; -fx-font-weight: 800; }
+.muted          { -fx-opacity: 0.95; }
+
+.kpi-value { -fx-font-size: 34px; }
+.kpi-label { -fx-font-size: 15px; -fx-opacity: 0.9; }
+
+.brand { -fx-font-size: 22px; }
+
+/* Навигация — крупнее и заметнее */
+.nav-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-padding: 13 16 13 16;
+}
+
+.nav-button.active {
+    -fx-border-width: 2;
+    -fx-font-weight: 800;
+}
+
+/* Кнопки и поля ввода крупнее */
+.action-button, .primary-button, .danger-button, .toggle-button {
+    -fx-font-size: 16px;
+    -fx-padding: 11 18 11 18;
+}
+
+.text-field, .password-field, .text-area,
+.date-picker > .text-field, .combo-box-base {
+    -fx-font-size: 16px;
+    -fx-border-width: 2;
+    -fx-padding: 9 12 9 12;
+}
+
+/* Более заметная рамка фокуса */
+.text-field:focused, .password-field:focused, .text-area:focused,
+.date-picker:focused > .text-field, .combo-box-base:focused,
+.button:focused, .toggle-button:focused {
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(three-pass-box, -fx-accent, 6, 0.3, 0, 0);
+}
+
+/* Таблицы: выше строки, крупнее текст */
+.table-view { -fx-font-size: 15px; }
+.table-view .column-header .label { -fx-font-size: 14px; -fx-font-weight: 800; }
+.table-view .column-header, .table-view .filler { -fx-size: 44; }
+.table-row-cell { -fx-cell-size: 40; }
+
+/* Бейджи статусов крупнее */
+.badge-ok, .badge-pending {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-padding: 3 10 3 10;
+}
+
+.status-bar { -fx-font-size: 14px; }

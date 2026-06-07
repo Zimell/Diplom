@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.volonterhoursapp.controller.SettingsController"
+      spacing="14">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <VBox spacing="2">
+        <Label text="Настройки" styleClass="title-label"/>
+        <Label text="Учётная запись и оформление приложения." styleClass="subtitle-label"/>
+    </VBox>
+
+    <VBox spacing="10" styleClass="card" maxWidth="640">
+        <Label text="Учётная запись" styleClass="section-header"/>
+        <Label text="Под этим именем записываются подтверждения участий и журнал действий."
+               styleClass="muted" wrapText="true"/>
+        <Label fx:id="accountLabel" text="—"/>
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <Label text="Роль:" styleClass="muted"/>
+            <Label fx:id="roleLabel" styleClass="role-badge"/>
+        </HBox>
+    </VBox>
+
+    <VBox spacing="10" styleClass="card" maxWidth="640">
+        <Label text="Оформление" styleClass="section-header"/>
+        <Label text="Выберите визуальную тему интерфейса." styleClass="muted" wrapText="true"/>
+        <HBox spacing="10">
+            <fx:define>
+                <ToggleGroup fx:id="themeGroup"/>
+            </fx:define>
+            <ToggleButton fx:id="darkToggle"  text="Тёмная"  toggleGroup="$themeGroup" onAction="#onTheme"/>
+            <ToggleButton fx:id="lightToggle" text="Светлая" toggleGroup="$themeGroup" onAction="#onTheme"/>
+        </HBox>
+        <CheckBox fx:id="accessibleCheck" text="＋  Версия для слабовидящих (крупный шрифт и контраст)"
+                  onAction="#onAccessible"/>
+        <Label text="Включается поверх выбранной темы — работает и с тёмной, и со светлой."
+               styleClass="muted" wrapText="true"/>
+    </VBox>
+
+    <VBox fx:id="dbCard" spacing="10" styleClass="card" maxWidth="640" managed="false" visible="false">
+        <Label text="База данных" styleClass="section-header"/>
+        <Label text="Параметры подключения. Раздел виден только администратору. Чтобы изменить — отредактируйте db-config.txt и перезапустите приложение."
+               styleClass="muted" wrapText="true"/>
+        <Label fx:id="dbInfoLabel" text=""/>
+    </VBox>
+
+    <Region/>
+</VBox>

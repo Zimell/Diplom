@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.volonterhoursapp.controller.VolunteersController"
+      spacing="14">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <VBox spacing="2">
+        <Label text="Волонтёры" styleClass="title-label"/>
+        <Label text="Управление списком волонтёров и их контактами." styleClass="subtitle-label"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Поиск по ФИО, email или телефону" HBox.hgrow="ALWAYS"/>
+        <Button text="Найти"     styleClass="action-button"  onAction="#onSearch"/>
+        <Button text="Сбросить"  styleClass="action-button"  onAction="#onResetSearch"/>
+        <Button text="Импорт CSV" styleClass="action-button" onAction="#onImportCsv"/>
+        <Button text="Экспорт CSV" styleClass="action-button" onAction="#onExportCsv"/>
+    </HBox>
+
+    <SplitPane dividerPositions="0.62" VBox.vgrow="ALWAYS">
+
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="colId"        text="#"             prefWidth="60"/>
+                <TableColumn fx:id="colFio"       text="ФИО"           prefWidth="230"/>
+                <TableColumn fx:id="colBirth"     text="Дата рождения" prefWidth="120"/>
+                <TableColumn fx:id="colPhone"     text="Телефон"       prefWidth="140"/>
+                <TableColumn fx:id="colEmail"     text="Email"         prefWidth="180"/>
+                <TableColumn fx:id="colRegistered" text="Регистрация"  prefWidth="120"/>
+            </columns>
+        </TableView>
+
+        <VBox spacing="10" styleClass="card">
+            <Label text="Карточка волонтёра" styleClass="section-header"/>
+            <Label text="ФИО"           styleClass="muted"/>
+            <TextField fx:id="fioField"/>
+            <Label text="Дата рождения" styleClass="muted"/>
+            <DatePicker fx:id="birthPicker" maxWidth="Infinity"/>
+            <Label text="Телефон"       styleClass="muted"/>
+            <TextField fx:id="phoneField"/>
+            <Label text="Email"         styleClass="muted"/>
+            <TextField fx:id="emailField"/>
+            <Label text="Дата регистрации" styleClass="muted"/>
+            <DatePicker fx:id="regPicker" maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <HBox spacing="10">
+                <Button text="Новый"      styleClass="action-button"  onAction="#onNew"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Удалить"    styleClass="danger-button"  onAction="#onDelete"/>
+                <Button text="Сохранить"  styleClass="primary-button" onAction="#onSave"/>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox>

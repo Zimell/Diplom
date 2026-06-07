@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.volonterhoursapp.controller.MainController"
+            styleClass="app-root">
+
+    <left>
+        <VBox styleClass="sidebar">
+            <Label text="ВОЛОНТЁРСКАЯ" styleClass="brand"/>
+            <Label text="СЛУЖБА · УЧЁТ ЧАСОВ" styleClass="subtitle-label,brand-accent">
+                <padding><Insets top="0" right="0" bottom="12" left="4"/></padding>
+            </Label>
+
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                        style="-fx-background-color: transparent; -fx-background: transparent;"
+                        VBox.vgrow="ALWAYS">
+                <VBox spacing="6">
+                    <Button fx:id="navDashboard"      text="Дашборд"          styleClass="nav-button" maxWidth="Infinity" onAction="#onShowDashboard"/>
+                    <Button fx:id="navVolunteers"     text="Волонтёры"        styleClass="nav-button" maxWidth="Infinity" onAction="#onShowVolunteers"/>
+                    <Button fx:id="navEvents"         text="Мероприятия"      styleClass="nav-button" maxWidth="Infinity" onAction="#onShowEvents"/>
+                    <Button fx:id="navParticipations" text="Участия"          styleClass="nav-button" maxWidth="Infinity" onAction="#onShowParticipations"/>
+                    <Button fx:id="navInfo"           text="Инфо о волонтёрах" styleClass="nav-button" maxWidth="Infinity" onAction="#onShowInfo"/>
+                    <Button fx:id="navAnalytics"      text="Аналитика"        styleClass="nav-button" maxWidth="Infinity" onAction="#onShowAnalytics"/>
+                    <Button fx:id="navRating"         text="Рейтинг"          styleClass="nav-button" maxWidth="Infinity" onAction="#onShowRating"/>
+                    <Button fx:id="navPlanner"        text="План мероприятий" styleClass="nav-button" maxWidth="Infinity" onAction="#onShowPlanner"/>
+                    <Button fx:id="navAudit"          text="Журнал действий"  styleClass="nav-button" maxWidth="Infinity" onAction="#onShowAudit"/>
+                    <Button fx:id="navUsers"          text="Пользователи"     styleClass="nav-button" maxWidth="Infinity" onAction="#onShowUsers"/>
+                    <Button fx:id="navSettings"       text="Настройки"        styleClass="nav-button" maxWidth="Infinity" onAction="#onShowSettings"/>
+                    <Button fx:id="helpButton"        text="Справка"          styleClass="nav-button" maxWidth="Infinity" onAction="#onShowHelp"/>
+                </VBox>
+            </ScrollPane>
+
+            <Region prefHeight="14"/>
+
+            <Label text="Оформление" styleClass="muted"/>
+            <HBox spacing="8">
+                <Button fx:id="themeButton" text="Светлая тема" styleClass="action-button"
+                        maxWidth="Infinity" HBox.hgrow="ALWAYS" onAction="#onToggleTheme"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <center>
+        <BorderPane>
+            <top>
+                <HBox styleClass="toolbar" alignment="CENTER_LEFT" spacing="10">
+                    <Label fx:id="sectionTitle" text="Дашборд" styleClass="title-label"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="userLabel" styleClass="muted"/>
+                    <Label fx:id="roleBadge" styleClass="role-badge"/>
+                    <Button fx:id="logoutButton" text="Выход" styleClass="action-button" onAction="#onLogout"/>
+                </HBox>
+            </top>
+            <center>
+                <StackPane fx:id="contentArea" styleClass="content-area"/>
+            </center>
+            <bottom>
+                <HBox styleClass="status-bar" alignment="CENTER_LEFT">
+                    <Label fx:id="statusLabel" text=""/>
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </center>
+</BorderPane>
