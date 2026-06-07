@@ -24,7 +24,7 @@
 
         <VBox spacing="6">
             <Label text="Логин" styleClass="muted"/>
-            <TextField fx:id="usernameField" promptText="Например: admin" maxWidth="Infinity"/>
+            <TextField fx:id="usernameField" promptText="Логин" maxWidth="Infinity"/>
         </VBox>
 
         <VBox spacing="6">
