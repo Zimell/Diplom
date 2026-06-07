@@ -1,0 +1,12 @@
+# Volunteer Hours - PostgreSQL connection configuration
+# Edit these values and restart the application.
+# theme: dark | light
+# accessibility: true | false (версия для слабовидящих)
+
+host=localhost
+port=5432
+dbname=volunteer_hours
+username=postgres
+password=root
+theme=light
+accessibility=false
